@@ -71,6 +71,12 @@ Backpropagation updates the weights in the network by minimizing the error (loss
 1. Compute the gradient of the loss function with respect to the weights and biases.
 2. Update the weights using an optimizer like **Adam**
 
+## Additional Important Topic: Dropout Regularization (**Not Used Right Now Here**)
+
+**Dropout** is a regularization technique used to prevent overfitting in neural networks. It works by randomly setting a fraction of input units to zero during training, forcing the network to learn more robust features and dependencies. 
+
+For example, during training, if a dropout rate of 0.2 is used, 20% of the neurons will be ignored in each training iteration
+
 ## Special Thanks
 
 A special thanks to the following resources and individuals for their invaluable contributions to the understanding of neural networks:
