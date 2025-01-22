@@ -3,7 +3,7 @@ import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-from Neural_Networks_final import Layer_Dense,Activation_ReLU,Activation_Softmax,Loss_CategoricalCrossEntropy,Optimizer_Adam
+from Neural_Network_final import Layer_Dense,Activation_ReLU,Activation_Softmax,Loss_CategoricalCrossEntropy,Optimizer_Adam
 
 # Load Iris dataset
 iris = datasets.load_iris()
