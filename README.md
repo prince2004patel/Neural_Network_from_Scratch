@@ -1,6 +1,6 @@
 # Neural Networks from Scratch
 
-This repository contains Python scripts and implementations that build a neural network from scratch. The goal is to understand core concepts such as forward propagation, backpropagation, optimization, and loss computation without relying on external libraries.
+This repository contains Python scripts and implementations that build a neural network from scratch. The goal is to understand core concepts such as forward propagation, backpropagation, optimization, loss computation and dropout without relying on external libraries.
 
 ## Image of Neural Networks 
 
@@ -31,6 +31,7 @@ To make the best use of this repository, follow the sequence below:
 
 ### 4. **Optimization Techniques:**
    - `Adam_Optimizer.py`: Explore the Adam optimization algorithm to update weights during training efficiently.
+   - `Dropout.py`: Dropout is a regularization technique used in neural networks to prevent overfitting.
 
 ### 5. **Bringing It All Together:**
    - `Neural_Network_final.py`: The culmination of the entire process, this script contains a complete implementation of a neural network capable of handling multi-class classification tasks.
@@ -50,9 +51,7 @@ To make the best use of this repository, follow the sequence below:
 In forward propagation, data flows through the network from the input layer to the output layer:
 
 1. Calculate **z**:
-```
-z = inputs * weights + bias
-```
+`z = inputs * weights + bias`
 
 2. Apply the **activation function**:
    - Use **ReLU** or its variants in the hidden layers.
@@ -71,7 +70,7 @@ Backpropagation updates the weights in the network by minimizing the error (loss
 1. Compute the gradient of the loss function with respect to the weights and biases.
 2. Update the weights using an optimizer like **Adam**
 
-## Additional Important Topic: Dropout Regularization (**Not Used Right Now Here**)
+## Additional Important Topic: Dropout Regularization 
 
 **Dropout** is a regularization technique used to prevent overfitting in neural networks. It works by randomly setting a fraction of input units to zero during training, forcing the network to learn more robust features and dependencies. 
 
