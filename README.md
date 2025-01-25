@@ -33,7 +33,7 @@ To make the best use of this repository, follow the sequence below:
    - `Dropout.py`: Dropout is a regularization technique used in neural networks to prevent overfitting.
 
 ### 5. **Bringing It All Together:**
-   - `Neural_Network_final.py`: The culmination of the entire process, this script contains a complete implementation of a neural network capable of handling multi-class classification tasks.
+   - `Neural_Network.py`: The culmination of the entire process, this script contains a complete implementation of a neural network capable of handling multi-class classification tasks.
 
 ### 6. **Practical Example:**
    - `train_iris.py`: A practical example using the Iris dataset to train the neural network and demonstrate its functionality.
