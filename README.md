@@ -1,8 +1,7 @@
-# Neural Networks from Scratch
+# Neural Network from Scratch
 
 This repository contains Python scripts and implementations that build a neural network from scratch. The goal is to understand core concepts such as forward propagation, backpropagation, optimization, loss computation and dropout without relying on external libraries.
 
-## Image of Neural Networks 
 
 ![Neural Network Concept](Neural_Network_img.webp)
 
