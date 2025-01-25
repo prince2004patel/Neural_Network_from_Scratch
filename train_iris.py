@@ -1,9 +1,8 @@
-# train_iris.py
 import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-from Neural_Network_final import Layer_Dense,Activation_ReLU,Activation_Softmax,Loss_CategoricalCrossEntropy,Optimizer_Adam
+from Neural_Network import Layer_Dense, Activation_ReLU, Activation_Softmax, Loss_CategoricalCrossEntropy, Optimizer_Adam, Dropout
 
 # Load Iris dataset
 iris = datasets.load_iris()
@@ -20,6 +19,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Initialize layers
 dense1 = Layer_Dense(4, 5)  # 4 features (from the Iris dataset), 5 neurons in the first layer
 activation1 = Activation_ReLU()
+dropout1 = Dropout(rate=0.1)  # Dropout for the first hidden layer
 
 dense2 = Layer_Dense(5, 3)  # 5 neurons in the previous layer, 3 output classes (Iris species)
 activation2 = Activation_Softmax()
@@ -35,24 +35,28 @@ for epoch in range(10001):
     # Forward pass
     dense1.forward(X_train)
     activation1.forward(dense1.output)
+    dropout1.forward(activation1.output)  # Apply dropout to the first hidden layer's activations
     
-    dense2.forward(activation1.output)
+    dense2.forward(dropout1.output)
     activation2.forward(dense2.output)
+    # No dropout after softmax (output layer)
 
     # Calculate loss
     loss = loss_function.calculate(activation2.output, y_train)
     
     # Backward pass
-    dvalues = loss_function.backward(activation2.output, y_train)
-    dense2.backward(dvalues, 0.01)
+    activation2.backward(activation2.output, y_train)
+    dense2.backward(activation2.dinput)
     
-    activation1.backward(dense2.dinput)
-    dense1.backward(activation1.dinput, 0.01)
+    dropout1.backward(dense2.dinput)  # Backprop through dropout1
+    activation1.backward(dropout1.dinput)
+    dense1.backward(activation1.dinput)
     
     # Update weights with Adam optimizer
     optimizer.update(dense1)
     optimizer.update(dense2)
     
+    # Print progress every 1000 epochs
     if epoch % 1000 == 0:
         print(f"Epoch {epoch}, Loss: {loss}")
 
